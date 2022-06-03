@@ -13,7 +13,7 @@
 #define DEAD_CELL ' '
 #define ALIVE_CELL 'o'
 
-void game_cycle_iter(char *p_c, int *p_is_correct, int *p_upd_ms,
+void game_cycle_iter(char *p_c, int *exit_code, int *p_upd_ms,
                      int **p_field, int *init_state, int *p_n_gen,
                      int *p_pause);
 void init_env();

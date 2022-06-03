@@ -1,16 +1,17 @@
 #include "game_of_life.h"
 
-void game_cycle_iter(char *p_c, int *p_is_correct, int *p_upd_ms,
+void game_cycle_iter(char *p_c, int *exit_code, int *p_upd_ms,
                      int **p_field, int *init_state, int *p_n_gen, int *p_pause) {
     napms(*p_upd_ms);
-    if (*p_is_correct) {
+    if (*exit_code == 0) {
         clear();
         refresh();
         draw_field(*p_field, *p_upd_ms, *p_n_gen, *p_pause);
         *p_c = getch();
     }
-    *p_is_correct = *p_is_correct && update(*p_c, p_upd_ms, p_field,
-                                            init_state, p_n_gen, p_pause);
+    if (*exit_code == 0 && !update(*p_c, p_upd_ms, p_field,
+                                   init_state, p_n_gen, p_pause))
+        *exit_code = 6;
 }
 
 void init_env() {
@@ -22,15 +23,18 @@ void init_env() {
 
 int initialize_field(int **p_field, int **p_init_field) {
     *p_field = (int *)malloc(WIDTH * HEIGHT * sizeof(int));
-    int is_correct = *p_field != NULL;
-    for (int i = 0; is_correct && i < WIDTH * HEIGHT; ++i)
-        is_correct = is_correct && scanf("%d", &((*p_field)[i])) == 1;
-    if (is_correct) {
-        char *termid = ctermid(NULL);
-        is_correct = is_correct && alloc_and_copy_arr(*p_field, p_init_field);
-        is_correct = is_correct && termid != NULL && freopen(termid, "r", stdin) != NULL;
+    int exit_code = 0;
+    if (p_field == NULL) exit_code = 1;
+    for (int i = 0; exit_code == 0 && i < WIDTH * HEIGHT; ++i) {
+        if (scanf("%d", &((*p_field)[i])) != 1) exit_code = 2;
     }
-    return is_correct;
+    if (exit_code == 0) {
+        char *termid = ctermid(NULL);
+        if (!alloc_and_copy_arr(*p_field, p_init_field)) exit_code = 3;
+        if (exit_code == 0 && termid == NULL) exit_code = 4;
+        if (exit_code == 0 && freopen(termid, "r", stdin) == NULL) exit_code = 5;
+    }
+    return exit_code;
 }
 
 int update(char c, int *p_upd_ms, int **p_field, int *init_state, int *p_n_gen, int *p_pause) {
@@ -43,7 +47,7 @@ int update(char c, int *p_upd_ms, int **p_field, int *init_state, int *p_n_gen, 
         for (int i = 0; is_correct && i < HEIGHT; ++i)
             for (int j = 0; is_correct && j < WIDTH; ++j)
                 update_cell(p_field, field_prev, i, j);
-        if (is_correct)
+        if (is_correct && field_prev)
             free(field_prev);
     }
     return is_correct;
