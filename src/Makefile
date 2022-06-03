@@ -12,26 +12,26 @@ game_start_point.o: game_start_point.h game_start_point.c
 compile: game_start_point.o game_of_life.o main.c
 	$(CC) game_start_point.o game_of_life.o main.c -o gol $(LIBS)
 
-run_demo: compile gosper_gun.txt
-	./gol < gosper_gun.txt
+run_demo: compile ../samples/gosper_gun.txt
+	./gol < ../samples/gosper_gun.txt
 
-diamond: compile diamond_4_8_12.txt
-	./gol < diamond_4_8_12.txt
+diamond: compile ../samples/diamond_4_8_12.txt
+	./gol < ../samples/diamond_4_8_12.txt
 
-glider: compile glider.txt
-	./gol < glider.txt
+glider: compile ../samples/glider.txt
+	./gol < ../samples/glider.txt
 
-gosper_gun: compile gosper_gun.txt
-	./gol < gosper_gun.txt
+gosper_gun: compile ../samples/gosper_gun.txt
+	./gol < ../samples/gosper_gun.txt
 
-loaf: compile loaf.txt
-	./gol < loaf.txt
+loaf: compile ../samples/loaf.txt
+	./gol < ../samples/loaf.txt
 
-pulsar: compile pulsar.txt
-	./gol < pulsar.txt
+pulsar: compile ../samples/pulsar.txt
+	./gol < ../samples/pulsar.txt
 
-spades: compile spades.txt
-	./gol < spades.txt
+spades: compile ../samples/spades.txt
+	./gol < ../samples/spades.txt
 
 clean:
 	rm -f gol *.out *.o *.h.gch
