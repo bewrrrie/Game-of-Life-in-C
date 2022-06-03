@@ -1,4 +1,4 @@
-# Conway's Game of Life.
+# Conway's Game of Life
 ![](demo/demo.gif)
 Simple console application that runs [Conway's Game of Life](en.wikipedia.org/wiki/Conway%27s_Game_of_Life) implemented in C. In this implementation game field is a [torus](https://en.wikipedia.org/wiki/Torus) which means that the top is glued to the bottom and the right border is glued to the left border.
 
