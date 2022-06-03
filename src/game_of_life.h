@@ -1,8 +1,8 @@
 #ifndef GAME_OF_LIFE_H
 #define GAME_OF_LIFE_H
 
-#include <stdlib.h>
 #include <ncurses.h>
+#include <stdlib.h>
 
 #define MIN_DELAY_MS 50
 #define ONE_LEVEL_DELAY_MS 25

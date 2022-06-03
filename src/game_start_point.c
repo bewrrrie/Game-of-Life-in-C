@@ -1,7 +1,6 @@
 #include "game_start_point.h"
 
-int run_game()
-{
+int run_game() {
     char c = getch();
     int *field;
     int *init_state;
@@ -14,8 +13,7 @@ int run_game()
     while (is_correct && c != 'q' && c != 'Q')
         game_cycle_iter(&c, &is_correct, &upd_ms, &field,
                         init_state, &n_generations, &pause);
-    if (is_correct)
-    {
+    if (is_correct) {
         endwin();
         free(field);
         free(init_state);
