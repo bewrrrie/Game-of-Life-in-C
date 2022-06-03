@@ -1,3 +1,9 @@
+# from `make clean` target
+gol
+*.out
+*.o
+*.h.gch
+
 # Prerequisites
 *.d
 
