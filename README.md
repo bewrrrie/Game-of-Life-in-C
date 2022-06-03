@@ -13,7 +13,7 @@ To specify a custom initial state pass a file containing the custom initial stat
 ```
 
 ### Initial state file format
-Initial state file consist of 25 rows and 80 columns. Each row contains characters `0` or `1` separated by spaces and ends with linebreak except last line. Character `1` defines alive cell and `0` defined dead cell. Try out default initial state files placed in `samples/`.
+Initial state file consists of 25 rows and 80 columns. Each row contains characters `0` or `1` separated by spaces. Each row except the last one ends with a linebreak. Character `1` defines alive cell and `0` defined dead cell. Try out default initial state files placed in `samples/`.
 
 ## References
 - [Conway's Game of Life (wiki)](en.wikipedia.org/wiki/Conway%27s_Game_of_Life);
