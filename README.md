@@ -13,7 +13,7 @@ To run the game run the shell script `run.sh`:
 ```
 ./run.sh
 ```
-To specify a custom initial state, pass a file containing the custom initial state as an argument to this script:
+To specify a custom initial state, pass a file containing the custom initial state as an argument to the script:
 ```
 ./run.sh samples/gosper_gun.txt
 ```
