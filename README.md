@@ -5,7 +5,7 @@ Simple console application that runs [Conway's Game of Life](en.wikipedia.org/wi
 ## Requirements
 Tested on Ubuntu 20.04.5 LTS.
 ```
-sudo apt install libncurses5-dev libncursesw5-dev
+sudo apt install libncurses5-dev
 ```
 
 ## Usage
