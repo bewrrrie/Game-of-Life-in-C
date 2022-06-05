@@ -3,7 +3,7 @@
 Simple console application that runs [Conway's Game of Life](en.wikipedia.org/wiki/Conway%27s_Game_of_Life) implemented in C. In this implementation game the field is a [torus](https://en.wikipedia.org/wiki/Torus) which means that the top is glued to the bottom, and the right border is glued to the left border.
 
 ## Requirements
-Teste on Ubuntu 20.04.5 LTS.
+Tested on Ubuntu 20.04.5 LTS.
 ```
 sudo apt install libncurses5-dev libncursesw5-dev
 ```
